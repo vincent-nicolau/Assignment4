@@ -1,0 +1,171 @@
+*{
+    box-sizing:border-box;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+}
+header{
+    background: purple;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 30px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+li{
+    float: left;
+}
+  
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: purple;
+}
+
+li a.active{
+    background-color: purple;
+    color: white;
+}
+
+.main_page{
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.sidebar{
+    width: 25%;
+    float: left;
+    background: darkgrey;
+    padding: 10px;
+}
+
+.sidebar ul{
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background-color: rgb(231, 231, 231);
+    text-align: left;
+}
+
+.sidebar li{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    text-align: left;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.sidebar h3{
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: black;
+    transition: background-color 0.3s;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar li a{
+    display: block;
+    text-align: left;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar li a:hover{
+    background-color: #555;
+}
+
+.main_page{
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    padding: 10px;
+    background: white;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.gallery{
+    display: grid;
+    margin: 2%;
+    text-align: center;
+    background: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.gallery:hover{
+    border-color: purple;
+}
+
+.gallery img{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+footer{
+    background: grey;
+    color: darkgrey;
+    text-align: left;
+    padding: 30px;
+    width: 100%;
+}
+
+.back a:link, .back a:visited{
+    background-color: purple;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back a {
+    display: inline-block;
+    background-color: purple;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.back a:hover, .back a:active{
+    background-color: rgb(150, 0, 150);
+}
