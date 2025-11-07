@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Reflection.Metadata;
 
@@ -19,7 +18,7 @@ public partial class MainForm : Form
         // initialize hand with sentinel cards so save/load won't hit nulls
         for (int i = 0; i < hand.Length; i++)
         {
-            hand[i] = new Card(NO_CARD);
+            hand[i] = Card.NO_CARD;
         }
     }
 
@@ -60,10 +59,10 @@ public partial class MainForm : Form
     private bool IsRedraw()
     {
         return keep1CheckBox.Checked ||
-            keep2CheckBox.Checked ||
-            keep3CheckBox.Checked ||
-            keep4CheckBox.Checked ||
-            keep5CheckBox.Checked;
+               keep2CheckBox.Checked ||
+               keep3CheckBox.Checked ||
+               keep4CheckBox.Checked ||
+               keep5CheckBox.Checked;
     }
 
     private void dealButton_Click(object sender, EventArgs e)
@@ -115,35 +114,11 @@ public partial class MainForm : Form
 
     private void UpdateHandPics()
     {
-        hand1PictureBox.Image = null;
-        if (hand[0] != null && (hand[0].Id > NO_CARD) && (hand[0].Id < cardsImageList.Images.Count))
-        {
-            hand1PictureBox.Image = cardsImageList.Images[hand[0].Id];
-        }
-
-        hand2PictureBox.Image = null;
-        if (hand[1] != null && (hand[1].Id > NO_CARD) && (hand[1].Id < cardsImageList.Images.Count))
-        {
-            hand2PictureBox.Image = cardsImageList.Images[hand[1].Id];
-        }
-
-        hand3PictureBox.Image = null;
-        if (hand[2] != null && (hand[2].Id > NO_CARD) && (hand[2].Id < cardsImageList.Images.Count))
-        {
-            hand3PictureBox.Image = cardsImageList.Images[hand[2].Id];
-        }
-
-        hand4PictureBox.Image = null;
-        if (hand[3] != null && (hand[3].Id > NO_CARD) && (hand[3].Id < cardsImageList.Images.Count))
-        {
-            hand4PictureBox.Image = cardsImageList.Images[hand[3].Id];
-        }
-
-        hand5PictureBox.Image = null;
-        if (hand[4] != null && (hand[4].Id > NO_CARD) && (hand[4].Id < cardsImageList.Images.Count))
-        {
-            hand5PictureBox.Image = cardsImageList.Images[hand[4].Id];
-        }
+        hand1PictureBox.Image = hand[0].CardImage;
+        hand2PictureBox.Image = hand[1].CardImage;
+        hand3PictureBox.Image = hand[2].CardImage;
+        hand4PictureBox.Image = hand[3].CardImage;
+        hand5PictureBox.Image = hand[4].CardImage;
     }
 
     private void saveButton_Click(object sender, EventArgs e)
@@ -182,5 +157,12 @@ public partial class MainForm : Form
         // call Deck.LoadHand; Deck implementation manages dialogs
         deck.LoadHand(string.Empty, hand);
         UpdateHandPics();
+    }
+
+    private void showButton_Click(object sender, EventArgs e)
+    {
+        // create and show the DeckForm — pass the current deck instance
+        DeckForm deckForm = new DeckForm(deck);
+        deckForm.ShowDialog(this);
     }
 }

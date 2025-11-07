@@ -9,13 +9,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace WinFormsAssignment3
 {
-    internal class Deck
+    public class Deck
     {
         private List<Card> cards;
         private ImageList imageList;
+        public readonly int Count;
         private const string HANDS_FOLDER = @"C:\Users\vincent\source\repos\2024 fall c sharp class\WinFormsAssignment3\WinFormsAssignment3\hands\";
         private const string DEFAULT_EXT = "txt";
-        private const int NO_CARD = -1;
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         public Deck(ImageList cardsImageList)
@@ -23,14 +23,23 @@ namespace WinFormsAssignment3
             imageList = cardsImageList;
             cards = new List<Card>();
         }
+
+        public Card GetCard(int index)
+        {
+            if (index >= 0 && index < cards.Count)
+            {
+                return cards[index];
+            }
+            return Card.NO_CARD;
+        }
         public void Shuffle()
         {
             cards.Clear();
 
-            // load deck from image list
+            // load deck from image list (pass the associated image to Card)
             for (int i = 0; i < imageList.Images.Count; i++)
             {
-                cards.Add(new Card(i));
+                cards.Add(new Card(i, imageList.Images[i]));
             }
 
             // shuffle it
@@ -50,7 +59,7 @@ namespace WinFormsAssignment3
         {
             if (cards == null || cards.Count == 0)
             {
-                return new Card(NO_CARD);
+                return Card.NO_CARD;
             }
 
             Card dealtCard = cards[0];
@@ -106,12 +115,11 @@ namespace WinFormsAssignment3
                         if (int.TryParse(line, out int id))
                         {
                             // create a new Card with the read Id
-                            hand[i] = new Card(id);
+                            hand[i] = new Card(id, imageList.Images[id]);
                         }
                         else
                         {
-                            // when parse fails or line is missing, use sentinel Id
-                            hand[i] = new Card(NO_CARD);
+                            hand[i] = Card.NO_CARD;
                         }
                     }
                 }

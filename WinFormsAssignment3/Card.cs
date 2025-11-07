@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace WinFormsAssignment3
 {
-    internal class Card
+    public class Card
     {
         public readonly int Id;
-        public readonly Image? image;
-        public Card(int id)
+        public readonly Image? CardImage;
+        public static readonly Card NO_CARD = new Card(-1, null);
+        public Card(int id, Image? image)
         {
-            Id = id;         
+            Id = id;
+            CardImage = image;
         }
     }
 }

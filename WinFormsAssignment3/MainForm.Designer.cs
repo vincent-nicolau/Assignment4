@@ -46,6 +46,7 @@ partial class MainForm
         loadButton = new Button();
         openFileDialog = new OpenFileDialog();
         saveFileDialog = new SaveFileDialog();
+        showButton = new Button();
         ((System.ComponentModel.ISupportInitialize)hand1PictureBox).BeginInit();
         ((System.ComponentModel.ISupportInitialize)hand5PictureBox).BeginInit();
         ((System.ComponentModel.ISupportInitialize)hand4PictureBox).BeginInit();
@@ -113,18 +114,20 @@ partial class MainForm
         // 
         // hand1PictureBox
         // 
-        hand1PictureBox.Location = new Point(56, 191);
+        hand1PictureBox.Location = new Point(49, 143);
+        hand1PictureBox.Margin = new Padding(3, 2, 3, 2);
         hand1PictureBox.Name = "hand1PictureBox";
-        hand1PictureBox.Size = new Size(125, 207);
+        hand1PictureBox.Size = new Size(100, 145);
         hand1PictureBox.TabIndex = 2;
         hand1PictureBox.TabStop = false;
         hand1PictureBox.Click += hand1PictureBox_Click;
         // 
         // dealButton
         // 
-        dealButton.Location = new Point(56, 39);
+        dealButton.Location = new Point(49, 29);
+        dealButton.Margin = new Padding(3, 2, 3, 2);
         dealButton.Name = "dealButton";
-        dealButton.Size = new Size(125, 57);
+        dealButton.Size = new Size(100, 50);
         dealButton.TabIndex = 0;
         dealButton.Text = "&Deal";
         dealButton.UseVisualStyleBackColor = true;
@@ -132,36 +135,40 @@ partial class MainForm
         // 
         // hand5PictureBox
         // 
-        hand5PictureBox.Location = new Point(768, 191);
+        hand5PictureBox.Location = new Point(672, 143);
+        hand5PictureBox.Margin = new Padding(3, 2, 3, 2);
         hand5PictureBox.Name = "hand5PictureBox";
-        hand5PictureBox.Size = new Size(125, 207);
+        hand5PictureBox.Size = new Size(100, 145);
         hand5PictureBox.TabIndex = 6;
         hand5PictureBox.TabStop = false;
         hand5PictureBox.Click += hand5PictureBox_Click;
         // 
         // hand4PictureBox
         // 
-        hand4PictureBox.Location = new Point(590, 191);
+        hand4PictureBox.Location = new Point(516, 143);
+        hand4PictureBox.Margin = new Padding(3, 2, 3, 2);
         hand4PictureBox.Name = "hand4PictureBox";
-        hand4PictureBox.Size = new Size(125, 207);
+        hand4PictureBox.Size = new Size(100, 145);
         hand4PictureBox.TabIndex = 7;
         hand4PictureBox.TabStop = false;
         hand4PictureBox.Click += hand4PictureBox_Click;
         // 
         // hand3PictureBox
         // 
-        hand3PictureBox.Location = new Point(412, 191);
+        hand3PictureBox.Location = new Point(360, 143);
+        hand3PictureBox.Margin = new Padding(3, 2, 3, 2);
         hand3PictureBox.Name = "hand3PictureBox";
-        hand3PictureBox.Size = new Size(125, 207);
+        hand3PictureBox.Size = new Size(100, 145);
         hand3PictureBox.TabIndex = 8;
         hand3PictureBox.TabStop = false;
         hand3PictureBox.Click += hand3PictureBox_Click;
         // 
         // hand2PictureBox
         // 
-        hand2PictureBox.Location = new Point(234, 191);
+        hand2PictureBox.Location = new Point(205, 143);
+        hand2PictureBox.Margin = new Padding(3, 2, 3, 2);
         hand2PictureBox.Name = "hand2PictureBox";
-        hand2PictureBox.Size = new Size(125, 207);
+        hand2PictureBox.Size = new Size(100, 145);
         hand2PictureBox.TabIndex = 9;
         hand2PictureBox.TabStop = false;
         hand2PictureBox.Click += hand2PictureBox_Click;
@@ -169,9 +176,10 @@ partial class MainForm
         // keep1CheckBox
         // 
         keep1CheckBox.AutoSize = true;
-        keep1CheckBox.Location = new Point(56, 153);
+        keep1CheckBox.Location = new Point(49, 115);
+        keep1CheckBox.Margin = new Padding(3, 2, 3, 2);
         keep1CheckBox.Name = "keep1CheckBox";
-        keep1CheckBox.Size = new Size(77, 24);
+        keep1CheckBox.Size = new Size(61, 19);
         keep1CheckBox.TabIndex = 4;
         keep1CheckBox.Text = "Keep &1";
         keep1CheckBox.UseVisualStyleBackColor = true;
@@ -179,9 +187,10 @@ partial class MainForm
         // keep2CheckBox
         // 
         keep2CheckBox.AutoSize = true;
-        keep2CheckBox.Location = new Point(234, 149);
+        keep2CheckBox.Location = new Point(205, 112);
+        keep2CheckBox.Margin = new Padding(3, 2, 3, 2);
         keep2CheckBox.Name = "keep2CheckBox";
-        keep2CheckBox.Size = new Size(77, 24);
+        keep2CheckBox.Size = new Size(61, 19);
         keep2CheckBox.TabIndex = 5;
         keep2CheckBox.Text = "Keep &2";
         keep2CheckBox.UseVisualStyleBackColor = true;
@@ -189,9 +198,10 @@ partial class MainForm
         // keep3CheckBox
         // 
         keep3CheckBox.AutoSize = true;
-        keep3CheckBox.Location = new Point(412, 149);
+        keep3CheckBox.Location = new Point(360, 112);
+        keep3CheckBox.Margin = new Padding(3, 2, 3, 2);
         keep3CheckBox.Name = "keep3CheckBox";
-        keep3CheckBox.Size = new Size(77, 24);
+        keep3CheckBox.Size = new Size(61, 19);
         keep3CheckBox.TabIndex = 6;
         keep3CheckBox.Text = "Keep &3";
         keep3CheckBox.UseVisualStyleBackColor = true;
@@ -199,9 +209,10 @@ partial class MainForm
         // keep4CheckBox
         // 
         keep4CheckBox.AutoSize = true;
-        keep4CheckBox.Location = new Point(590, 149);
+        keep4CheckBox.Location = new Point(516, 112);
+        keep4CheckBox.Margin = new Padding(3, 2, 3, 2);
         keep4CheckBox.Name = "keep4CheckBox";
-        keep4CheckBox.Size = new Size(77, 24);
+        keep4CheckBox.Size = new Size(61, 19);
         keep4CheckBox.TabIndex = 7;
         keep4CheckBox.Text = "Keep &4";
         keep4CheckBox.UseVisualStyleBackColor = true;
@@ -209,18 +220,20 @@ partial class MainForm
         // keep5CheckBox
         // 
         keep5CheckBox.AutoSize = true;
-        keep5CheckBox.Location = new Point(768, 149);
+        keep5CheckBox.Location = new Point(672, 112);
+        keep5CheckBox.Margin = new Padding(3, 2, 3, 2);
         keep5CheckBox.Name = "keep5CheckBox";
-        keep5CheckBox.Size = new Size(77, 24);
+        keep5CheckBox.Size = new Size(61, 19);
         keep5CheckBox.TabIndex = 8;
         keep5CheckBox.Text = "Keep &5";
         keep5CheckBox.UseVisualStyleBackColor = true;
         // 
         // saveButton
         // 
-        saveButton.Location = new Point(590, 39);
+        saveButton.Location = new Point(516, 29);
+        saveButton.Margin = new Padding(3, 2, 3, 2);
         saveButton.Name = "saveButton";
-        saveButton.Size = new Size(125, 57);
+        saveButton.Size = new Size(100, 50);
         saveButton.TabIndex = 2;
         saveButton.Text = "&Save Hand";
         saveButton.UseVisualStyleBackColor = true;
@@ -228,9 +241,10 @@ partial class MainForm
         // 
         // loadButton
         // 
-        loadButton.Location = new Point(768, 39);
+        loadButton.Location = new Point(672, 29);
+        loadButton.Margin = new Padding(3, 2, 3, 2);
         loadButton.Name = "loadButton";
-        loadButton.Size = new Size(125, 57);
+        loadButton.Size = new Size(100, 50);
         loadButton.TabIndex = 3;
         loadButton.Text = "&Load Hand";
         loadButton.UseVisualStyleBackColor = true;
@@ -240,11 +254,22 @@ partial class MainForm
         // 
         openFileDialog.FileName = "openFileDialog1";
         // 
+        // showButton
+        // 
+        showButton.Location = new Point(360, 29);
+        showButton.Name = "showButton";
+        showButton.Size = new Size(100, 50);
+        showButton.TabIndex = 10;
+        showButton.Text = "S&how Deck";
+        showButton.UseVisualStyleBackColor = true;
+        showButton.Click += showButton_Click;
+        // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(952, 478);
+        ClientSize = new Size(833, 358);
+        Controls.Add(showButton);
         Controls.Add(loadButton);
         Controls.Add(saveButton);
         Controls.Add(keep5CheckBox);
@@ -259,6 +284,7 @@ partial class MainForm
         Controls.Add(dealButton);
         Controls.Add(hand1PictureBox);
         FormBorderStyle = FormBorderStyle.FixedDialog;
+        Margin = new Padding(3, 2, 3, 2);
         MaximizeBox = false;
         Name = "MainForm";
         Text = "Poker Hand Simulator";
@@ -289,4 +315,5 @@ partial class MainForm
     private Button loadButton;
     private OpenFileDialog openFileDialog;
     private SaveFileDialog saveFileDialog;
+    private Button showButton;
 }
