@@ -134,5 +134,15 @@ namespace WinFormsAssignment3
 
             return true;
         }
+        public void SwapCards(int index1, int index2)
+        {
+            if (index1 < 0 || index1 >= cards.Count || index2 < 0 || index2 >= cards.Count)
+            {
+                return;
+            }
+            Card temp = cards[index1];
+            cards[index1] = cards[index2];
+            cards[index2] = temp;
+        }
     }
 }

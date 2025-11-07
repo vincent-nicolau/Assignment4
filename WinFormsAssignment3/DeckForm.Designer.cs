@@ -31,6 +31,8 @@
             lblCards = new Label();
             lstDeck = new ListBox();
             picSelectedCard = new PictureBox();
+            btnUp = new Button();
+            btnDown = new Button();
             ((System.ComponentModel.ISupportInitialize)picSelectedCard).BeginInit();
             SuspendLayout();
             // 
@@ -62,11 +64,33 @@
             picSelectedCard.TabIndex = 2;
             picSelectedCard.TabStop = false;
             // 
+            // btnUp
+            // 
+            btnUp.Location = new Point(320, 50);
+            btnUp.Name = "btnUp";
+            btnUp.Size = new Size(100, 40);
+            btnUp.TabIndex = 3;
+            btnUp.Text = "&Up";
+            btnUp.UseVisualStyleBackColor = true;
+            btnUp.Click += btnUp_Click;
+            // 
+            // btnDown
+            // 
+            btnDown.Location = new Point(320, 119);
+            btnDown.Name = "btnDown";
+            btnDown.Size = new Size(100, 40);
+            btnDown.TabIndex = 4;
+            btnDown.Text = "&Down";
+            btnDown.UseVisualStyleBackColor = true;
+            btnDown.Click += btnDown_Click;
+            // 
             // DeckForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(485, 413);
+            Controls.Add(btnDown);
+            Controls.Add(btnUp);
             Controls.Add(picSelectedCard);
             Controls.Add(lstDeck);
             Controls.Add(lblCards);
@@ -85,5 +109,7 @@
         private Label lblCards;
         private ListBox lstDeck;
         private PictureBox picSelectedCard;
+        private Button btnUp;
+        private Button btnDown;
     }
 }

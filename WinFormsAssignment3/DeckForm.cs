@@ -43,9 +43,39 @@ namespace WinFormsAssignment3
             picSelectedCard.Image = card?.CardImage;
         }
 
+
+
         private void lblCards_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            int newIndex;
+            if (_deck == null) return;
+            // can only move up if an item is selected and it's not already the first item
+            if (lstDeck.SelectedIndex > 0 && lstDeck.SelectedIndex < _deck.Count)
+            {
+                _deck.SwapCards(lstDeck.SelectedIndex, lstDeck.SelectedIndex - 1);
+                newIndex = lstDeck.SelectedIndex - 1;
+                UpdateDeck();
+                lstDeck.SetSelected(newIndex, true);
+            }
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            int newIndex;
+            if (_deck == null) return;
+            // can only move down if an item is selected and it's not the last item
+            if (lstDeck.SelectedIndex >= 0 && lstDeck.SelectedIndex < _deck.Count - 1)
+            {
+                _deck.SwapCards(lstDeck.SelectedIndex, lstDeck.SelectedIndex + 1);
+                newIndex = lstDeck.SelectedIndex + 1;
+                UpdateDeck();
+                lstDeck.SetSelected(newIndex, true);
+            }
         }
     }
 }
