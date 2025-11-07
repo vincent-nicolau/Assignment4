@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace WinFormsAssignment3
 {
@@ -15,6 +16,11 @@ namespace WinFormsAssignment3
         {
             Id = id;
             CardImage = image;
+        }
+
+        public override string ToString()
+        {
+            return Id.ToString();
         }
     }
 }

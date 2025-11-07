@@ -161,7 +161,7 @@ public partial class MainForm : Form
 
     private void showButton_Click(object sender, EventArgs e)
     {
-        // create and show the DeckForm — pass the current deck instance
+        deck.Shuffle(); // ensure deck is populated
         DeckForm deckForm = new DeckForm(deck);
         deckForm.ShowDialog(this);
     }

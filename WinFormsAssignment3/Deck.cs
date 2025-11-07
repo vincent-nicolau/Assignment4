@@ -13,7 +13,8 @@ namespace WinFormsAssignment3
     {
         private List<Card> cards;
         private ImageList imageList;
-        public readonly int Count;
+        // return current count of cards
+        public int Count => cards?.Count ?? 0;
         private const string HANDS_FOLDER = @"C:\Users\vincent\source\repos\2024 fall c sharp class\WinFormsAssignment3\WinFormsAssignment3\hands\";
         private const string DEFAULT_EXT = "txt";
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
