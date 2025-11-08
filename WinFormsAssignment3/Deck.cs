@@ -12,7 +12,7 @@ namespace WinFormsAssignment3
     public class Deck
     {
         private List<Card> cards;
-        private ImageList imageList;
+        public ImageList imageList;
         // return current count of cards
         public int Count => cards?.Count ?? 0;
         private const string HANDS_FOLDER = @"C:\Users\vincent\source\repos\2024 fall c sharp class\WinFormsAssignment3\WinFormsAssignment3\hands\";
@@ -40,7 +40,7 @@ namespace WinFormsAssignment3
             // load deck from image list (pass the associated image to Card)
             for (int i = 0; i < imageList.Images.Count; i++)
             {
-                cards.Add(new Card(i, imageList.Images[i]));
+                cards.Add(new Card(i, imageList.Images[i], imageList.Images.Keys[i].ToString()));
             }
 
             // shuffle it
@@ -116,7 +116,7 @@ namespace WinFormsAssignment3
                         if (int.TryParse(line, out int id))
                         {
                             // create a new Card with the read Id
-                            hand[i] = new Card(id, imageList.Images[id]);
+                            hand[i] = new Card(id, imageList.Images[id], imageList.Images.Keys[i].ToString());
                         }
                         else
                         {

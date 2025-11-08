@@ -5,9 +5,10 @@ namespace WinFormsAssignment3;
 
 public partial class MainForm : Form
 {
-    private Deck deck;
+    public Deck deck;
     private Card[] hand = new Card[5];
     private const int NO_CARD = -1;
+    private DeckForm? deckForm;
 
     public MainForm()
     {
@@ -47,6 +48,7 @@ public partial class MainForm : Form
 
         // use Deck.DealCard() and store the Card into the hand array
         Card dealt = deck.DealCard();
+        deckForm?.UpdateDeck();
         hand[pos] = dealt;
     }
 
@@ -54,6 +56,7 @@ public partial class MainForm : Form
     {
         // repopulate and shuffle the deck
         deck.Shuffle();
+        deckForm?.UpdateDeck();
     }
 
     private bool IsRedraw()
@@ -100,16 +103,6 @@ public partial class MainForm : Form
         }
 
         UpdateHandPics();
-        ResetKeepCheckboxes();
-    }
-
-    private void ResetKeepCheckboxes()
-    {
-        keep1CheckBox.Checked = false;
-        keep2CheckBox.Checked = false;
-        keep3CheckBox.Checked = false;
-        keep4CheckBox.Checked = false;
-        keep5CheckBox.Checked = false;
     }
 
     private void UpdateHandPics()
@@ -156,13 +149,31 @@ public partial class MainForm : Form
     {
         // call Deck.LoadHand; Deck implementation manages dialogs
         deck.LoadHand(string.Empty, hand);
+        deckForm?.UpdateDeck();
         UpdateHandPics();
     }
 
     private void showButton_Click(object sender, EventArgs e)
     {
-        deck.Shuffle(); // ensure deck is populated
-        DeckForm deckForm = new DeckForm(deck);
-        deckForm.ShowDialog(this);
+        if (deckForm == null || deckForm.IsDisposed)
+        {
+            DeckForm deckForm = new DeckForm(deck);
+            deckForm.ShowDialog(this);
+        }
+        try
+        {
+            if (!deckForm.Visible)
+            {
+                deckForm.Show(this);
+            }
+            else
+            {
+                deckForm.Activate();
+            }
+            deckForm.UpdateDeck();
+        } catch (NullReferenceException)
+        {
+
+        }
     }
 }
