@@ -1,7 +1,7 @@
 using System.Reflection.Emit;
 using System.Reflection.Metadata;
 
-namespace WinFormsAssignment3;
+namespace Assignment4;
 
 public partial class MainForm : Form
 {

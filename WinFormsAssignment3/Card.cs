@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Diagnostics.CodeAnalysis;
 
-namespace WinFormsAssignment3
+namespace Assignment4
 {
     public class Card
     {

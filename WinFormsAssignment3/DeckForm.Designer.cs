@@ -1,4 +1,4 @@
-﻿namespace WinFormsAssignment3
+﻿namespace Assignment4
 {
     partial class DeckForm
     {
