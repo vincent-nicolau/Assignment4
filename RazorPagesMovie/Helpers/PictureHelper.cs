@@ -10,7 +10,7 @@ public static class PictureHelper
         string guid = Guid.NewGuid().ToString();
         string ext = Path.GetExtension(file.FileName);
 
-        string shortPath = Path.Combine("images\\Items", guid + ext);
+        string shortPath = Path.Combine("images\\Movies", guid + ext);
         string path = Path.Combine(environment.WebRootPath, shortPath);
 
         using (var fs = new FileStream(path, FileMode.Create))
