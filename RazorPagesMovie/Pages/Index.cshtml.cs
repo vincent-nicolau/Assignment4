@@ -1,13 +1,25 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie.Data;
+using RazorPagesMovie.Models;
 
-namespace RazorPagesMovie.Pages
+namespace RazorPagesMovie.Pages;
+
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
-    {
-        public void OnGet()
-        {
+    private readonly RazorPagesMovieContext _context;
 
-        }
+    public IndexModel(RazorPagesMovieContext context)
+    {
+        _context = context;
+    }
+
+    public IList<Movie> Movies { get; set; } = new List<Movie>();
+
+    public async Task OnGetAsync()
+    {
+        Movies = await _context.Movie
+            .OrderBy(m => m.Rank)
+            .ToListAsync();
     }
 }

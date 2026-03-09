@@ -8,16 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
+using Microsoft.AspNetCore.Hosting;
+using RazorPagesMovie.Helpers;
 
 namespace RazorPagesMovie.Pages.Movies
 {
     public class EditModel : PageModel
     {
         private readonly RazorPagesMovie.Data.RazorPagesMovieContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public EditModel(RazorPagesMovie.Data.RazorPagesMovieContext context)
+        public EditModel(RazorPagesMovie.Data.RazorPagesMovieContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         [BindProperty]
@@ -46,6 +50,13 @@ namespace RazorPagesMovie.Pages.Movies
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            if (HttpContext.Request.Form.Files.Count > 0)
+            {
+                Movie.PictureUri = PictureHelper.UploadNewImage(
+                    _env,
+                    HttpContext.Request.Form.Files[0]);
             }
 
             _context.Attach(Movie).State = EntityState.Modified;

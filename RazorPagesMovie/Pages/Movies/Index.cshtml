@@ -39,7 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Movie[0].Rank)
             </th>
-            <th></th>
+            <th>Image</th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +64,12 @@
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.PictureUri))
+                {
+                    <img src="@item.PictureUri" class="my-thumbnail-class" />
+                }
             </td>
         </tr>
 }
