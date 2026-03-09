@@ -26,6 +26,8 @@ public class Movie
     public string Genre { get; set; } = string.Empty;
 
     [Required]
-    [Range(1, 10, ErrorMessage = "Must be between 1 and 10.")]
+    [Range(1, 100, ErrorMessage = "Must be between 1 and 100.")]
     public int Rank { get; set; }
+
+    public string? PictureUri { get; set; }
 }

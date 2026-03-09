@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
+using Microsoft.AspNetCore.Hosting;
+using RazorPagesMovie.Helpers;
 
 namespace RazorPagesMovie.Pages.Movies
 {
     public class CreateModel : PageModel
     {
         private readonly RazorPagesMovie.Data.RazorPagesMovieContext _context;
-
-        public CreateModel(RazorPagesMovie.Data.RazorPagesMovieContext context)
+        private readonly IWebHostEnvironment _env;
+        public CreateModel(RazorPagesMovie.Data.RazorPagesMovieContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public IActionResult OnGet()
@@ -33,6 +36,13 @@ namespace RazorPagesMovie.Pages.Movies
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            if (HttpContext.Request.Form.Files.Count > 0)
+            {
+                Movie.PictureUri = PictureHelper.UploadNewImage(
+                    _env,
+                    HttpContext.Request.Form.Files[0]);
             }
 
             _context.Movie.Add(Movie);
