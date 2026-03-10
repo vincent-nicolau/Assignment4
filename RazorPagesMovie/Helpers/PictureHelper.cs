@@ -1,24 +1,22 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using static System.Net.Mime.MediaTypeNames;
 
-namespace RazorPagesMovie.Helpers;
-
-public static class PictureHelper
+namespace RazorPagesMovie.Helpers
 {
-    public static string UploadNewImage(IWebHostEnvironment environment, IFormFile file)
+    public static class PictureHelper
     {
-        string guid = Guid.NewGuid().ToString();
-        string ext = Path.GetExtension(file.FileName);
-
-        string shortPath = Path.Combine("images\\Movies", guid + ext);
-        string path = Path.Combine(environment.WebRootPath, shortPath);
-
-        using (var fs = new FileStream(path, FileMode.Create))
+        public static string UploadNewImage(IWebHostEnvironment environment,
+        IFormFile file)
         {
-            file.CopyTo(fs);
+            string guid = Guid.NewGuid().ToString();
+            string ext = Path.GetExtension(file.FileName);
+            string shortPath = Path.Combine("images/Movies", guid + ext);
+            string path = Path.Combine(environment.WebRootPath, shortPath);
+            using (var fs = new FileStream(path, FileMode.Create))
+            {
+                file.CopyTo(fs);
+            }
+            shortPath = "/" + shortPath;
+            return shortPath;
         }
-
-        shortPath = Path.Combine("\\", shortPath);
-        return shortPath;
     }
 }
